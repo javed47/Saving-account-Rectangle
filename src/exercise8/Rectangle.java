@@ -7,7 +7,7 @@ public class Rectangle
 	{
 		//Instantiate the class Rectangle
 		RectangleMake rectangle = new RectangleMake(20, 5);
-		
+		rectangle.areaPerimeter();
 		
 		//output string of perimeter and area after instantiation
 		System.out.printf("%s%n%s%n", "After instantiation: ", rectangle);
@@ -16,13 +16,15 @@ public class Rectangle
 		{
 			rectangle.setLength(20);
 			rectangle.setWidth(6);
+			rectangle.areaPerimeter();
 			
 			rectangle.setLength(10);
 			rectangle.setWidth(5);
+			rectangle.areaPerimeter();
 			
-			rectangle.setLength(20);
-			rectangle.setWidth(10);
-		
+			rectangle.setLength(-20);
+			rectangle.setWidth(100);
+			rectangle.areaPerimeter();
 		
 	
 		System.out.printf("%s%n%s%n", "After putting value in try: ", rectangle);
@@ -43,7 +45,8 @@ class RectangleMake {
 
 	private double length = 1;
 	private double width = 1; 
-
+	double area;
+	double perimeter;
 
 	//Constructor of Rectangle
 	 public RectangleMake (double length, double width)
@@ -80,13 +83,16 @@ class RectangleMake {
 		this.width = width;
 	}
 	
+	public void areaPerimeter()
+	{
+		this.area = (length * width);
+		this.perimeter = (2* (length + width));
+	}
+	
 	
 	//ToString method for class Rectangle
 	public String toString()
 	{
-		double area = (length * width);
-		double perimeter = (2* (length + width));
-		
 		return String.format("Perimeter: %.3f meter\t Area: %.3f sq.meter", perimeter, area );
 		
 	}
